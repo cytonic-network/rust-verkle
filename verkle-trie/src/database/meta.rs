@@ -147,7 +147,7 @@ use crate::from_to_bytes::{FromBytes, ToBytes};
 impl FromBytes<Vec<u8>> for BranchMeta {
     fn from_bytes(bytes: Vec<u8>) -> Result<BranchMeta, SerializationError> {
         let len = bytes.len();
-        if !len == 32 + 64 {
+        if len != 32 + 64 {
             return Err(SerializationError::InvalidData);
         }
 
